@@ -27,7 +27,7 @@ jobs:
       run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
     - name: Configure User Authentication for RDP
-      run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\TerminalServer\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+      run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\TerminalServer\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Force
 
     - name: Set Local User Password
       run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
